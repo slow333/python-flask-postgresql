@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/js/menu/loadNav.js"></script>
+</head>
+<body>
+<main>
+<h1>PostgreSQL Basic</h1>
+<h2>CREATE USER</h2>
+<PRE>
+  CREATE USER user_name WITH PASSWORD 'password' CREATEROLE CREATEDB;
+</PRE>
+<h2>원격 접속; -d database name</h2>
+<pre># psql -U mydbuser -h 127.0.0.1 -d postgres</pre>
+<h2>CREATE DATABASE</h2>
+<pre>=# CREATE DATABASE database_name;</pre>
+<h3>DROP TATABSE</h3>
+<pre>=# DROP DATABASE database_name;</pre>
+<h3>db connect</h3>
+<pre>=# \c database_name</pre>
+<h2>CREATE TABLE</h2>
+<p>SERIAL : auto increment, BIGSERIAL</p>
+<pre>=# CREATE TABLE person (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP
+);</pre>
+<H3>DROM TABLE</H3>
+<pre>=# DROP TABLE person;</pre>
+<h2>INSERT</h2>
+<pre>=# INSERT INTO person (name, age, address, created_at)
+    VALUES ('John Doe', 30, '123 Main St', NOW()),
+    ('John Doe', 30, '123 Main St', '2019-02-22');</pre>
+<h3>Import data from file : https://www.mockaroo.com/</h3>
+<pre>=# \copy person FROM '/path/to/file.csv' DELIMITER ',' CSV HEADER;</pre>
+<pre>=# \i '/path/to/file.sql';</pre>
+</main>
+</body>
+</html>

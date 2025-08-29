@@ -1,0 +1,48 @@
+.flask_nav {
+  list-style-type: none;
+  padding: 0;
+}
+
+.flask_nav li {
+  display: inline;
+  margin-right: 10px;
+}
+.flask_nav li a {
+  text-decoration: none;
+  color: green;
+  padding: 4px 10px;
+  border: 1px solid green;
+  border-radius: 10px;
+}
+
+.flask_links {
+  padding: 4px 10px;
+  text-align: center;
+}
+.flask_links a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: blue;
+  padding: 4px 10px;
+  border: 1px solid blue;
+  border-radius: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+  color: blue;
+}
+
+.flask_links a:hover {
+  text-decoration: underline;
+}
+.form_create {
+  margin: 20px;
+}
+.form_create input[type="text"], .form_create textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: var(--fs-xl);
+  font-family: var(--font-base);
+}

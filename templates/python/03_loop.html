@@ -1,0 +1,85 @@
+<h1>if 문</h1>
+<p>x or y # x가 False이면 y, x가 True이면 x<br />
+x and y # x가 False이면 x<br />
+not x # x가 False이면 True, x가 True이면 False<br />
+# in x in list, tuple, dict, set, str<br />
+# not in x not in list, tuple, dict, set, str<br />
+# pass</p>
+<pre>pocket = [&#39;paper&#39;, &#39;cellphone&#39;, &#39;money&#39;]  
+if &#39;money&#39; in pocket:
+    pass
+else:
+    print(&quot;카드를 꺼내라&quot;)
+
+x = int(input(&quot;Please enter an integer: &quot;))
+if x &lt; 0:
+    x = 0
+    print(&#39;Negative changed to zero&#39;)
+elif x == 0:
+    print(&#39;Zero&#39;)
+elif x == 1:
+    print(&#39;Single&#39;)
+else:
+    print(&#39;More&#39;)</pre>
+<h1>for 문</h1>
+<pre>users = {&#39;Hans&#39;: &#39;active&#39;, &#39;Éléonore&#39;: &#39;inactive&#39;, &#39;景太郎&#39;: &#39;active&#39;}
+
+for user, status in users.copy().items():
+    if status == &#39;inactive&#39;:
+        del users[user]
+active_users = {}
+for user, status in users.items():
+    if status == &#39;active&#39;:
+        active_users[user] = status</pre>
+<h2>for문을 list에 직접 사용</h2>
+<pre>students = [1,2,3,4]
+students = [i + 100 for i in students]
+print(students)</pre>
+<h2>range(num)</h2>
+<pre>for i in range(5):  
+  print(i, end=&#39; &#39;)  
+
+list(range(5, 10)) , 5,6,7,8,9  
+list(range(start, end, step))
+
+a = [&#39;Mary&#39;, &#39;had&#39;, &#39;a&#39;, &#39;little&#39;, &#39;lamb&#39;]  
+for i in range(len(a)):  
+  print(i, a[i])  
+
+seasons = [&#39;Spring&#39;, &#39;Summer&#39;, &#39;Fall&#39;, &#39;Winter&#39;]  
+list(enumerate(seasons))  
+[(0, &#39;Spring&#39;), (1, &#39;Summer&#39;), (2, &#39;Fall&#39;), (3, &#39;Winter&#39;)]  
+
+def enumerate(iterable, start=0):
+    n = start
+    for elem in iterable:
+        yield n, elem
+        n += 1</pre>
+<p>sum(range(5))<br />
+### break 문 : 자신이 직접 속한 for를 빠져나옴</p>
+<pre>prime number가 아닌 것에 대해...
+for n in range(2, 10):
+    for x in range(2, n):
+        if n % x == 0:
+            print(f&quot;{n} equals {x} * {n//x}&quot;)
+            break</pre>
+<h3>continue
+문 : 자신이 속한 for의 처음으로 돌아감, 뒤에 것을 실행안함</h3>
+<pre>for num in range(2, 10):
+    if num % 2 == 0:
+        print(f&quot;Found an even number {num}&quot;)
+        continue
+    print(f&quot;Found an odd number {num}&quot;)</pre>
+<h3>for, while에서의 else 문</h3>
+<p>for, while에서 break를 만나지 않으면 실행됨</p>
+<pre>for n in range(2, 10):
+    for x in range(2, n):
+        if n % x == 0:
+            print(n, &#39;equals&#39;, x, &#39;*&#39;, n//x)
+            break
+    else:
+        # loop fell through without finding a factor
+        print(n, &#39;is a prime number&#39;)
+else:
+    # loop fell through without finding a factor
+    print(&#39;No prime numbers found&#39;)</pre>

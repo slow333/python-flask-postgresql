@@ -1,0 +1,53 @@
+<h1>함수 사용 방법</h1>
+<pre>def add_many(*args):
+  result = 0
+  for arg in args:
+    result += arg
+  return result
+
+add_many(1,2,3,4,5,6,7)
+
+def add_mul(choice, *args):
+  if choice == &quot;add&quot;:
+    result = 0
+    for arg in args:
+      result += arg
+  elif choice == &quot;mul&quot;:
+    result = 1
+    for arg in args:
+      result *= arg
+  return result
+
+add_mul(&#39;add&#39;, 1,2,3,4,5)
+add_mul(&#39;mul&#39;, 1,2,3,4,5)
+</pre>
+<h2>*args</h2>
+<p>나머지 매게변수로 동작함</p>
+<h2>**kwargs</h2>
+<h3>입력값을 dicoanry 형태로
+처리</h3>
+<h3>return a, b 하면
+2개의 값을 tuple로 반환함</h3>
+<pre>def print_kwargs(**kwargs):
+  print(kwargs)
+
+print_kwargs(a=1, b=2, c=3, d=4) 
+
+def add_and_mul(a,b):
+  return a+b, a*b
+
+add_and_mul(3,4)
+result1, result2 = add_and_mul(3,4)
+print(result1, result2)</pre>
+<h2>전역변수
+사용하기(local에서 global 사용)</h2>
+<pre>a = 1
+def vartest(a):
+  global a
+  a = a + 1
+
+vartest(a)
+print(a)</pre>
+<h1>사용자 입력 받기 input</h1>
+<p>int(input(‘숫자를 입력하세요’)) # 창에서 입력값을 받음<br />
+input으로 받음 값은 str으로 저장됨</p>

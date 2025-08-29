@@ -1,0 +1,93 @@
+<h1>rhel 8 python, flask 설치</h1>
+<h1>flask_app/app.py</h1>
+<pre>from flask import Flask
+
+app = Flask(__name__)
+
+@app.route(&quot;/&quot;)
+def hello():
+    return &quot;Hello World!&quot;
+
+if __name__ == &quot;__main__&quot;:
+  app(host=&quot;0.0.0.0&quot;, port=5000, debug=True)</pre>
+<h1>flask 시작 서비스 등록</h1>
+<pre># /etc/systemd/system/flask.service OR /usr/lib/systemd/system/flask.service
+[Unit]
+Description=my Flask app
+After=network.target
+[Service]
+User=root
+Group=root
+WorkingDirectory=/home/python
+ExecStart=/usr/bin/python3 /home/python/app.py # 전체 경로를 지정해야 함
+Restart=always
+[Install]
+WantedBy=multi-user.target</pre>
+<h1>wsgi, uwsgi 설정</h1>
+<h2>1. Python 및 Flask 설치</h2>
+<h3>Python
+3 설치 확인 및 설치: RHEL 8에는 기본 Python 3가 설치되어 있을 수
+있습니다.</h3>
+<p>python3 –version ### 설치되어 있지 않다면 다음과 같이 설치합니다.
+sudo dnf install python3 ### Flask 설치: 가상 환경을 설정하여 Flask를
+설치하는 것이 좋습니다.</p>
+<pre>가상환경 생성
+python3 -m venv myenv
+가상환경 활성화
+source myenv/bin/activate
+Flask 설치
+pip install Flask</pre>
+<h2>2. Flask 애플리케이션 작성</h2>
+<h3>app.py라는
+이름으로 간단한 Flask 앱을 작성합니다.</h3>
+<pre>from flask import Flask
+
+app = Flask(__name__)
+
+@app.route(&#39;/&#39;)
+def hello_world():
+    return &#39;Hello, World!&#39;
+
+if __name__ == &#39;__main__&#39;:
+    app.run(debug=True)</pre>
+<h2>3. WSGI 서버 (Gunicorn) 설치 및
+실행</h2>
+<pre>Gunicorn 설치:
+  pip install gunicorn  
+Flask 앱 실행: 가상 환경이 활성화된 상태에서 Gunicorn을 사용하여 Flask 앱을 실행합니다.
+  gunicorn -w 4 app:app  
+위 명령어는 4개의 워커 프로세스로 Flask 앱을 실행합니다.</pre>
+<h2>4. 웹 서버 (Nginx)
+설치 및 Reverse Proxy 설정</h2>
+<pre>Nginx 설치:
+  sudo dnf install nginx  
+Nginx 설정: sudo vi /etc/nginx/conf.d/flask_app.conf 파일을 생성하고 다음과 같이 Reverse Proxy 설정을 추가합니다.
+
+server {
+    listen 80;
+    server_name your_domain_or_ip; # 실제 IP 주소나 도메인으로 변경
+
+    location / {
+        proxy_pass http://127.0.0.1:8000; # Gunicorn이 실행 중인 포트
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}</pre>
+<h3>Nginx 재시작 및 방화벽 설정:</h3>
+<pre>sudo systemctl restart nginx
+sudo firewall-cmd --permanent --add-service=http</pre>
+<h3>이제
+웹 브라우저에서 http://your_domain_or_ip로 접속하면 Nginx를 통해 Flask
+애플리케이션이 제공되는 것을 확인할 수 있습니다.</h3>
+
+
+
+echo "# python-flask-postgresql" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:slow333/python-flask-postgresql.git
+git push -u origin main
