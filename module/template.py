@@ -1,3 +1,5 @@
+from module.menu import getMenu
+
 def body_template(nav, content, id=None):
     contextUI = ''
     if id != None:
@@ -15,7 +17,13 @@ def body_template(nav, content, id=None):
       <title>flask CRUD</title>
     </head>
     <body>
+    <main>
+    <nav class="navbar">
+        {getMenu()}
+    </nav>
+    <hr>
         <ol class="flask_nav">
+          <li><a href="/">Home</a></li>
             {nav}
         </ol>
         <div class="flask_content">

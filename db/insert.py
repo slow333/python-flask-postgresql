@@ -8,7 +8,7 @@ ins = users.insert().values([
 ])
 
 ins_add = addresses.insert().values([
-  {'user_id': 1, 'email_address': 'john.doe@example.com'},
+  {'user_id': 3, 'email_address': 'john.doe@example.com'},
   {'user_id': 2, 'email_address': 'alice.smith@example.com'},
 ])
 with engine.connect() as conn:

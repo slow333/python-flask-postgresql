@@ -105,30 +105,28 @@ h5 {
   font-size: var(--fs-base);
   font-weight: 600;
   color: var(--gray-dark);
-  margin: 10px;
+  margin: 6px;
 }
 h5:before {
-  content: " º ";
-  padding-left: 18px;
+  content: "■ ";
+  padding-left: 3px;
   color: #0021dc;
 }
 p {
   margin: 0.25rem 0.5rem;
   font-size: var(--fs-base); 
   color: black;
-  text-indent: var(--fs-base);
   line-height: 1.7;
   padding-top:4px;
 }
-p::first-letter { font-size: 1.1rem; font-weight: bold;}
 pre, xmp {
   /* white-space: pre-wrap;  */
   font-size: 1rem; 
   color: black;
-  background-color: #e1e3e1;
+  background-color: #f0f0f0;
   padding: var(--fs-small); 
   font-family: var(--font-mono);
-  width: 96%;
+  /* width: 96%; */
   margin: var(--fs-small) 0; 
 }
 table, td, tr, td {

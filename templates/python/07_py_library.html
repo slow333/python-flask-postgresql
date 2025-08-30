@@ -1,5 +1,5 @@
-<h1>시험중…</h1>
 <h1>표준 라이브러리</h1>
+<section>
 <p>abs(-2) # 2<br />
 all([]) # true // all([1,2,0]) False<br />
 all([]) # true // all([1,2,0]) False<br />
@@ -35,15 +35,15 @@ sum([1,2,3]) # 6<br />
 tuple([1,2,3]) # (1,2,3)<br />
 type(int) # &lt;class ‘int’&gt;<br />
 zip([1,2,3], [4,5,6]) # [(1, 4), (2, 5), (3, 6)]</p>
-<h2>string 관련 함수</h2>
+<h4>string 관련 함수</h4>
 <p>str(4) # ‘4’<br />
 string[2] # 3번째 문자<br />
 string[2:5] # 3번째부터 5번째까지<br />
 str.index(‘searchStr’) # 없으면 애러<br />
 str.find(‘searchStr’) # 없으면 -1<br />
 str.count(‘searchStr’) # 몇번 나오는지</p>
-<h1>기본 라이브러리</h1>
-<h3>import random as r</h3>
+<h3>기본 라이브러리</h3>
+<h5>import random as r</h5>
 <p>word = ‘123456789abcdefghijk’<br />
 r.choice(word)<br />
 r.random() # 0.12345678901234567<br />
@@ -68,21 +68,18 @@ sys.argv # 파이썬 파일 실행시 입력된 값<br />
 os.listdir(os.getcwd()) # 현재 디렉토리의 파일 목록<br />
 os.mkdir(‘test’) # 디렉토리 생성<br />
 os.rmdir(‘test’) # 디렉토리 삭제<br />
-os.walk(os.getcwd()) # 디렉토리 트리 조회해서 path, dir, files를
-반환<br />
+os.walk(os.getcwd()) # 디렉토리 트리 조회해서 path, dir, files를 반환<br />
 –&gt; for path, dir, files in os.walk(os.getcwd()):<br />
-–&gt; print(path, dir, files) directory 면 자동으로 하위 파일을
-검색함<br />
+–&gt; print(path, dir, files) directory 면 자동으로 하위 파일을 검색함<br />
 ### import datetime datetime.date.today() # 현재 날짜<br />
 datetime.datetime.now() # 현재 날짜와 시간
-datetime.datetime.now().strftime(‘%Y-%m-%d %H:%M:%S’) # 현재 날짜와
-시간을 문자열로 반환<br />
+datetime.datetime.now().strftime(‘%Y-%m-%d %H:%M:%S’) # 현재 날짜와 시간을 문자열로 반환<br />
 datetime.timedelta(days=1) # 1일<br />
 datetime.timedelta(days=3) # 3일<br />
 datetime.timedelta(days=1, hours=1) # 1일 1시간<br />
 ### import time time.time() # 현재 시간</p>
-<h1>외부 라이브러리</h1>
-<h2>설치, 삭제</h2>
+<h3>외부 라이브러리</h3>
+<h4>설치, 삭제</h4>
 <p>pip install package_name=1.0.4 / pip install package_name<br />
 pip uninstall package_name<br />
 pip install –upgrade package_name<br />
@@ -102,7 +99,8 @@ fake.pyint(min_value=0, max_value=100)  0부터 100 사이의 임의의 숫자
 fake.ipv4_private() IP 주소
 fake.text() 임의의 문장 (한글 임의의 문장은 fake.catch_phrase() 사용)
 fake.color_name()   색상명</pre>
-<h3>pip install sympy</h3>
+<h5>pip install sympy</h5>
 <p>방정식 기호를 사용하게 해주는 라이브러리<br />
 from fractions import Fraction<br />
 from sympy import Symbol, solve</p>
+</section>
