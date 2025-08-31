@@ -13,6 +13,7 @@ ins_user = users.insert().values([
   {'fname': '관용', 'lname': '김'}
 ])
 
-
-with engine.connect() as conn:
-  conn.execute(ins_user)
+ins = users.insert().values(fname='Charlie', lname='Brown')
+# with engine.connect() as conn:
+  # conn.execute(ins_user)
+  # conn.execute(ins)
